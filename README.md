@@ -1,6 +1,4 @@
 # **Cheatsheet**  
-### **Useful commands that I might've forgotten**
-
 ### **Docker**
 *The affected docker is based on what directory you're in!*
 * Spin up Docker:  
