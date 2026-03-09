@@ -1,5 +1,5 @@
 # **Cheatsheet**  
-### **Useful commands that I'm never going to memorize**
+### **Useful commands that I might've forgotten**
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
@@ -11,6 +11,22 @@
 
 * Spin down Docker AND delete volumes:  
   docker compose down -v
+
+### **Git**
+* Check current repo:  
+  git remote -v
+
+* Check current username:  
+  git config user.name
+
+* Set repo specific username:  
+  git config user.name "username"
+
+* Check current e-mail:  
+  git config user.email
+
+* Set repo specific e-mail:  
+  git config user.email "e-mail"
 
 ### **Powershell**
 * Filter ls search results (replace "citydna" with query term):  
