@@ -1,4 +1,11 @@
-# **Cheatsheet**  
+# **Cheatsheet**
+
+### **Index**
+* [Docker](#docker)
+* [Git](#git)
+* [PowerShell](#powershell)
+* [Python](#python)
+
 ### **Docker**
 *The affected docker is based on what directory you're in!*
 * Spin up Docker:  
