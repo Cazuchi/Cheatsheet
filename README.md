@@ -5,6 +5,7 @@
 * [Git](#git)
 * [PowerShell](#powershell)
 * [Python](#python)
+* [Miscellaneous](#miscellaneous)
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
@@ -43,3 +44,7 @@
 ### **Python**
 * Create virtual environment (replace second "venv" for different name, but the name doesn't actually matter):  
   `python -m venv venv`
+
+### **Miscellaneous**
+* Backtick for code blocks:
+  `Shift + the key to the left of backspace`
