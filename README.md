@@ -17,13 +17,13 @@
 * Check current username:  
   git config user.name
 
-* Set repo specific username:  
+* Set repo-specific username:  
   git config user.name "username"
 
 * Check current e-mail:  
   git config user.email
 
-* Set repo specific e-mail:  
+* Set repo-specific e-mail:  
   git config user.email "e-mail"
 
 ### **Powershell**
