@@ -46,5 +46,5 @@
   `python -m venv venv`
 
 ### **Miscellaneous**
-* Backtick for code blocks:
+* Backtick for code blocks:  
   `Shift + the key to the left of backspace`
