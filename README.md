@@ -3,13 +3,13 @@
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
-* Spin up Docker:
+* Spin up Docker:  
   docker compose up -d
 
-* Spin down Docker:
+* Spin down Docker:  
   docker compose down
 
-* Spin down Docker AND delete volumes:
+* Spin down Docker AND delete volumes:  
   docker compose down -v
 
 ### **Powershell**
@@ -17,5 +17,5 @@
   ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime
 
 ### **Python**
-* Create virtual environment (replace second "venv" for different name, but the name doesn't actually matter):
+* Create virtual environment (replace second "venv" for different name, but the name doesn't actually matter):  
   python -m venv venv
