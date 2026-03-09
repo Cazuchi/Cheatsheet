@@ -37,7 +37,7 @@
 * Just use git clone to initialize new repo instead of doing it in Powershell:  
   `git clone [repo link]`
 
-* Check if local repo is up to date with online repo:
+* Check if local repo is up to date with online repo:  
   `git fetch` --> `git status`
 
 ### **PowerShell**
