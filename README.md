@@ -48,6 +48,9 @@
 * Create virtual environment (replace second "venv" for different name, but the name doesn't actually matter):  
   `python -m venv venv`
 
+* When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.
+  `python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
+
 ### **Miscellaneous**
 * Backtick for code blocks:  
   `Shift + the key to the left of backspace`
