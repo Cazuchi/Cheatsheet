@@ -45,10 +45,10 @@
   `ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime`
 
 ### **Python**
-* Create virtual environment (replace second "venv" for different name, but the name doesn't actually matter):  
+* Create virtual environment. The second "venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named venv or .venv, so leave as default unless it's important to have a different name for the environment:  
   `python -m venv venv`
 
-* When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.
+* When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.  
   `python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
 
 ### **Miscellaneous**
