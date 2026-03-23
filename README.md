@@ -48,7 +48,7 @@
   `Code name.filetype`
 
 * Copy a file, like if you want a temporary backup while refactoring (... xD):  
-  `Copy-Item "OLD NAME" "NEW NAME"`
+  `Copy-Item old_name.filetype new_name.filetype`
 
 ### **Python**
 * Create virtual environment. The second "venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named venv or .venv, so leave as default unless it's important to have a different name for the environment:  
