@@ -44,6 +44,12 @@
 * Filter ls search results (replace "citydna" with query term):  
   `ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime`
 
+* You can use `New-Item name.filetype` to create a new file, but you can also just try to access the file and PowerShell will create it if it doesn't exist:  
+  `Code name.filetype`
+
+* Copy a file, like if you want a temporary backup while refactoring (... xD):  
+  `Copy-Item "OLD NAME" "NEW NAME"`
+
 ### **Python**
 * Create virtual environment. The second "venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named venv or .venv, so leave as default unless it's important to have a different name for the environment:  
   `python -m venv venv`
