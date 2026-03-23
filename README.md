@@ -71,28 +71,29 @@
   OR
 
   ```python
-  conditions = [
+  search_criteria = [
     dfm[col] == criteria1,
     dfm[col] == criteria2,
     dfm[col] == criteria3,
   ]
 
-  choices = [
+  replacement_values = [
     replacement_value1,
     replacement_value2,
     replacement_value3
   ]
 
-  df[col] = np.select(conditions, choices, default=dfm[col]) 
+  df[col] = np.select(search_criteria, replacement_values, default=dfm[col]) 
   """ 
   The "default" parameter specifies the value to return for rows that don't match any of the 
   specified criteria. Point back to the original column to keep the original values or replace 
-  with a custom value.
+  with a custom value. The first criteria maps to the first replacement value and so on.
+  Like a key mapping to a value in a dictionary, except these are just two lists.
   """
   ```
 
 ### **SQL**
-* Basic CTE structure. Pick and choose which function are needed (Placeholder created by Claude. Remember to go through and comment. Add examples from F1 analysis):  
+* Basic CTE structure. Pick and choose which function are needed (Placeholder. Will go through and add explanations later):  
   ```sql
   WITH cte_name AS (
     SELECT
