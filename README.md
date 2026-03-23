@@ -62,9 +62,10 @@
   ```python
   df[col].map(DICTIONARY).fillna(VALUE) 
   """
-  Make sure the dictionary's keys matches values in the column and the values are what you want to 
-  replace them with. Fillna() is optional if you want to handle values that don't match in a specific way.
-  map() returns NaN values by default for missing matches.
+  Make sure the dictionary's keys matches values in the column and the values are what you 
+  want to replace them with. Fillna() is optional if you want to handle values that don't 
+  match in a specific way. map() returns NaN values by default for missing matches.
+  """
   ```
 
   OR
@@ -84,8 +85,9 @@
 
   df[col] = np.select(conditions, choices, default=dfm[col]) 
   """ 
-  The "default" parameter specifies the value to return for rows that don't match any of the specified 
-  criteria. Point back to the original column to keep the original values or replace with a custom value.
+  The "default" parameter specifies the value to return for rows that don't match any of the 
+  specified criteria. Point back to the original column to keep the original values or replace 
+  with a custom value.
   """
   ```
 
