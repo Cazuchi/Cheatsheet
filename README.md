@@ -40,6 +40,28 @@
 * Check if local repo is up to date with online repo:  
   `git fetch` --> `git status`
 
+### **Pandas***
+* For replacing values in a dataframe, use one of the following:  
+  ```python
+  df[col].map(DICTIONARY).fillna(VALUE) # Make sure the dictionary's keys matches values in the column and the values are what you want to replace them with. Fillna() is optional if you want to handle values that don't match in a specific way. map() returns NaN values by default for missing matches.
+  ```
+
+  ```python
+  conditions = [
+    dfm[col] == criteria1,
+    dfm[col] == criteria2,
+    dfm[col] == criteria3,
+  ]
+
+  choices = [
+    replacement_value1,
+    replacement_value2,
+    replacement_value3
+  ]
+
+  df[col] = np.select(conditions, choices, default=dfm[col]) # The "default" parameter specifies the value to return for rows that don't match any of the specified criteria. Point back to the original column to keep the original values or replace with a custom value.
+  ```
+
 ### **PowerShell**
 * Filter ls search results (replace "citydna" with query term):  
   `ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime`
@@ -56,6 +78,41 @@
 
 * When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.  
   `python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
+
+### **SQL**
+* Basic CTE structure. Pick and choose which function are needed (Placeholder created by Claude. Remember to go through and comment. Add examples from F1 analysis):  
+  ```sql
+  WITH cte_name AS (
+    SELECT
+        t1.column1,
+        t1.column2,
+        t2.column3,
+        t1.column4 AS "Named Column",
+        'literal string' AS "Static Value",
+        SUM(t1.column5) AS total_value,
+        AVG(t1.column5) AS avg_value,
+        COUNT(t1.column5) AS count_value,
+        ROW_NUMBER() OVER (PARTITION BY t1.column1 ORDER BY t1.column2) AS row_num,
+        SUM(t1.column5) OVER (PARTITION BY t1.column1 ORDER BY t1.column2) AS running_total
+    FROM table1 t1
+    INNER JOIN table2 t2
+        ON t1.column1 = t2.column1
+    LEFT JOIN table3 t3
+        ON t1.column1 = t3.column1
+    WHERE t1.column1 = 'value'
+        AND t1.column2 > 100
+    GROUP BY
+        t1.column1,
+        t1.column2,
+        t2.column3
+    HAVING SUM(t1.column5) > 100
+  )
+
+  SELECT *
+  FROM cte_name
+  WHERE row_num = 1
+  ORDER BY column1 ASC
+  ```
 
 ### **Miscellaneous**
 * Backtick for code blocks:  
