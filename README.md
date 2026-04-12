@@ -29,11 +29,17 @@
 * Set repo-specific username:  
   `git config user.name "username"`
 
+* Set global username:  
+  `git config --global user.name "username"`
+
 * Check current e-mail:  
   `git config user.email`
 
 * Set repo-specific e-mail:  
   `git config user.email "e-mail"`
+
+* Set global e-mail:  
+  `git config --global user.email "e-mail"`
 
 * Just use git clone to initialize new repo instead of doing it in Powershell:  
   `git clone [repo link]`
