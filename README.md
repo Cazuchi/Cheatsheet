@@ -15,7 +15,8 @@
   CREATE OR REPLACE TABLE `your_project.your_dataset.your_table` AS
   SELECT * FROM `your_project.your_dataset.your_table`
   FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 2 HOUR)
-  ```
+  ``` 
+  Actual lifesaver. Replace `INTERVAL 2 HOUR` with a time delta long enough to where you are sure that the original table existed.
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
