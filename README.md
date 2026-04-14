@@ -1,12 +1,21 @@
 # **Cheatsheet**
 
 ### **Index**
+* [BigQuery](#bigquery)
 * [Docker](#docker)
 * [Git](#git)
 * [PowerShell](#powershell)
 * [Python](#python)
 * [SQL](#sql)
 * [Miscellaneous](#miscellaneous)
+
+### **BigQuery** 
+* BigQuery timetravel. Bigquery stores snapshots of tables for 7 days. Use this to restore a BigQuery table to a previous snapshot: 
+  ```sql
+  CREATE OR REPLACE TABLE `your_project.your_dataset.your_table` AS
+  SELECT * FROM `your_project.your_dataset.your_table`
+  FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 2 HOUR)
+  ```
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
