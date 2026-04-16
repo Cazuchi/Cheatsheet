@@ -3,6 +3,7 @@
 ### **Index**
 * [BigQuery](#bigquery)
 * [Docker](#docker)
+* [d-types](#d-types)
 * [Git](#git)
 * [PowerShell](#powershell)
 * [Python](#python)
