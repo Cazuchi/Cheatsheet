@@ -31,18 +31,18 @@
   `docker compose down -v`
 
 ### **d-types**
-* Excel doesn't remember d-types. Use Parquet instead! Especially for intermediate datasets while testing. 
-  `df.to_parquet([FILENAME OR RAW PATH], index=False)` instead of `df.to_excel([FILENAME OR RAW PATH], index=False)` 
-  `pd.read_parquet()` instead of `pd.read_excel()` 
-  Unless it absolutely has to be used in excel afterwards. 
+* Excel doesn't remember d-types. Use Parquet instead! Especially for intermediate datasets while testing.  
+  `df.to_parquet([FILENAME OR RAW PATH], index=False)` instead of `df.to_excel([FILENAME OR RAW PATH], index=False)`  
+  `pd.read_parquet()` instead of `pd.read_excel()`  
+  Unless it absolutely has to be used in excel afterwards.  
 
 ### **Git**
-* MAKE THIS A HABIT every morning! 
-  `git remote -v` check the repo 
-  `git branch` check what branch I'm on. `git checkout [branch]` to switch 
-  `git fetch` to get the newest version from github 
-  `git status` check if the local repo is up to date 
-  `git pull` if it isn't 
+* MAKE THIS A HABIT every morning!  
+  `git remote -v` check the repo  
+  `git branch` check what branch I'm on. `git checkout [branch]` to switch  
+  `git fetch` to get the newest version from github  
+  `git status` check if the local repo is up to date  
+  `git pull` if it isn't  
 
 * Check current repo:  
   `git remote -v`
