@@ -72,6 +72,15 @@
   `git fetch` --> `git status`
 
 ### **PowerShell**
+* Add timestamp and choose venv tag color (baby blue in this case) in the PowerShell output:  
+  `subl $PROFILE` to open the PowerShell settings. `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)` to create it first, if the settings file doesn't exist.  
+  ```sql
+  function prompt {
+    $venv = if ($env:VIRTUAL_ENV) { "`e[38;5;153m($(Split-Path $env:VIRTUAL_ENV -Leaf))`e[0m " } else { "" }
+    "[$(Get-Date -Format 'HH:mm:ss')] $venv PS $($executionContext.SessionState.Path.CurrentLocation)> "
+    }
+  ```   
+
 * Filter ls search results (replace "citydna" with query term):  
   `ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime`
 
