@@ -74,7 +74,7 @@
 ### **PowerShell**
 * Add pastel yellow timestamp and baby blue venv tag color in the PowerShell output:  
   `subl $PROFILE` to open the PowerShell settings. `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)` to create it first, if the settings file doesn't exist, then:  
-  ```sql
+  ```powershell
   function prompt {
     $venv = if ($env:VIRTUAL_ENV) { "`e[38;5;153m($(Split-Path $env:VIRTUAL_ENV -Leaf))`e[0m " } else { "" }
     "[`e[38;5;229m$(Get-Date -Format 'HH:mm:ss')`e[0m] $venv PS $($executionContext.SessionState.Path.CurrentLocation)> "
