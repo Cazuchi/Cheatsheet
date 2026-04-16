@@ -72,14 +72,15 @@
   `git fetch` --> `git status`
 
 ### **PowerShell**
-* Add timestamp and choose venv tag color (baby blue in this case) in the PowerShell output:  
-  `subl $PROFILE` to open the PowerShell settings. `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)` to create it first, if the settings file doesn't exist.  
+* Add pastel yellow timestamp and baby blue venv tag color in the PowerShell output:  
+  `subl $PROFILE` to open the PowerShell settings. `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)` to create it first, if the settings file doesn't exist, then:  
   ```sql
   function prompt {
     $venv = if ($env:VIRTUAL_ENV) { "`e[38;5;153m($(Split-Path $env:VIRTUAL_ENV -Leaf))`e[0m " } else { "" }
-    "[$(Get-Date -Format 'HH:mm:ss')] $venv PS $($executionContext.SessionState.Path.CurrentLocation)> "
+    "[`e[38;5;229m$(Get-Date -Format 'HH:mm:ss')`e[0m] $venv PS $($executionContext.SessionState.Path.CurrentLocation)> "
     }
   ```   
+  `. $PROFILE` to load the new PowerShell settings without having to restart the terminal.  
 
 * Filter ls search results (replace "citydna" with query term):  
   `ls -Recurse -Filter "*citydna*.ipynb" | Sort-Object LastWriteTime -Descending | Select-Object Name, LastWriteTime`
