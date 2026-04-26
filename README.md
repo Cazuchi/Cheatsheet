@@ -72,6 +72,19 @@
   `git fetch` --> `git status`
 
 ### **PowerShell**
+* IF PowerShell won't save the $PROFILE, it's because you need to create it first manually. Run this to create it:  
+  `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)`
+
+* Sublime Text can be used to open textfiles from PowerShell, but the program has to be added to the environmental variables first. In windows, hit the windows key, search for environmental variables and add the path to the Sublime text folder as a new line in the PATH variable.
+
+* By DEFAULT PowerShell doesn't allow for the execution of scripts in the terminal. Run this to fix it (slightly more lenient script policy, standard for programming):  
+  `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+* To make PowerShell open in a given directory by default open the $PROFILE in a texteditor:  
+  `subl $PROFILE`  
+  Then add this line:  
+  `Set-Location *path*`  
+
 * Add pastel yellow timestamp and baby blue venv tag color in the PowerShell output:  
   `subl $PROFILE` to open the PowerShell settings. `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)` to create it first, if the settings file doesn't exist, then:  
   ```powershell
