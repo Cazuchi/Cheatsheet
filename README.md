@@ -189,6 +189,8 @@
   ORDER BY column1 ASC
   ```
 
+* JOIN statements - THIS APPLIES TO PANDAS AS WELL. The DIRECTION of the join statement specifies which table is protected. LEFT and RIGHT joins respectively keep all of the rows in the LEFT or RIGHT table, but drops any row from the other table without a match. INNER only keeps rows that match ACROSS BOTH TABLES. FULL OUTER JOIN (just "outer" in Pandas) protects BOTH tables and includes rows that DO NOT have a match across the two tables. In practice, RIGHT joins are pointless - just memorize the LEFT join function and switch the order of the tables depending on which needs protection.
+
 ### **Miscellaneous**
 * Backtick for code blocks:  
   `Shift + the key to the left of backspace`
