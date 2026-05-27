@@ -111,6 +111,12 @@
 * Check the path to the ACTIVE virtual environment to confirm which is being used (like when you have multiple venvs called "venv"):  
   `$env:VIRTUAL_ENV`  
 
+* Dump all installed packages to a requirements.txt files (includes specific version numbers):  
+  `pip freeze > requirements.txt`
+
+* Install all packages from a requirements.txt file (-r specifies that you want pip to read from a file. The filename doesn't matter - the structure of the file does. Requirements.txt is the norm tho'):  
+  `pip install -r requirements.txt`
+
 * When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.  
   `python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
 
