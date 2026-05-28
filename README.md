@@ -37,7 +37,7 @@
   Unless it absolutely has to be used in excel afterwards.  
 
 ### **Git**
-* SETTING UP SSH access to Git (easier for switching between accounts than HTTPS authentication):  
+* SETTING UP SSH access to GitHub (easier for switching between accounts than HTTPS authentication):  
   Start by creating an SSH key in PowerShell:  
   `ssh-keygen -t ed25519 -C "email@email.com" -f "$HOME\.ssh\id_ed25519_personal"`.  
   Windows has a config file for SSH connections where we need to specify an alias and what host the key should be used to connect to:  
