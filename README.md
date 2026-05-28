@@ -37,9 +37,11 @@
   Unless it absolutely has to be used in excel afterwards.  
 
 ### **Git**
-* SETTING UP SSH access to GitHub (easier for switching between accounts than HTTPS authentication):  
+* **SETTING UP SSH access to GitHub** (easier for switching between accounts than HTTPS authentication):  
+  
   Start by creating an SSH key in PowerShell:  
   `ssh-keygen -t ed25519 -C "email@email.com" -f "$HOME\.ssh\id_ed25519_personal"`.  
+  
   Windows has a config file for SSH connections where we need to specify an alias and what host the key should be used to connect to:  
   ```  
   Host github-personal  
@@ -47,11 +49,17 @@
     User git  
     IdentityFile C:\Users\mha\.ssh\id_ed25519_personal  
   ```  
+  
   Then add the public SSH key to GitHub in the settings menu. Use `cat ~/.ssh/id_ed25519_personal.pub` to get the key. Copy and paste the entire return (3 elements) into GitHub SSH settings on the site.  
+  
   Test the connection to GitHub with `ssh -T git@github-personal`.  
+  
   Existing HTTPS connections to repos can be switched over to SSH using `git remote set-url origin git@github-personal:Cazuchi/reponame.git`.  
+  
   New repos can have their SSH connection established using `git remote add origin git@github-personal:Cazuchi/reponame.git`.  
+  
   Use `git remote -v` to double check that the project folder is connected to the correct GitHub repo.  
+  
   Git doesn't use Windows' OpenSSH by default and might not read the SSH config initially. Use `git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"` to ensure that it reads the correct SSH config file and can connect to GitHub. This only needs to be done once. It's a global setting that's saved afterwards.  
 
 * MAKE THIS A HABIT every morning!  
