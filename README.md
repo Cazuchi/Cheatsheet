@@ -165,7 +165,10 @@
   `$env:VIRTUAL_ENV`  
 
 * Dump all installed packages to a requirements.txt files (includes specific version numbers):  
-  `pip freeze > requirements.txt`
+  `pip freeze > requirements.txt`.  
+
+  If you DON'T want pinned versions, use pipreqs instead or run this in PowerShell to strip version numbers:  
+  `pip freeze | ForEach-Object { $_ -replace '[><=!~].*', '' } | Out-File requirements.txt`.  
 
 * Install all packages from a requirements.txt file (-r specifies that you want pip to read from a file. The filename doesn't matter - the structure of the file does. Requirements.txt is the norm tho'):  
   `pip install -r requirements.txt`
