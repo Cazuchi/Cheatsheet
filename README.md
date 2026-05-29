@@ -58,6 +58,8 @@
   Python scripts will need the venv to run, so the format for actually running a script is `[time] [venv path to python.exe] [python script]`, like in this example:  
   `0 4 10,20,28 * * /home/mha/CityDNA/venv/bin/python3 /home/mha/CityDNA/main.py`.  
 
+  **The NANO editor in Debian is weird.. Ctrl+x --> Y --> Enter to save and exit.**  
+
 ### **Docker**
 *The affected docker is based on what directory you're in!*
 * Spin up Docker:  
