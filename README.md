@@ -2,6 +2,7 @@
 
 ### **Index**
 * [BigQuery](#bigquery)
+* [Compute Engine VMs](#compute-engine-vms)
 * [Docker](#docker)
 * [d-types](#d-types)
 * [Git](#git)
@@ -18,6 +19,12 @@
   FOR SYSTEM_TIME AS OF TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 2 HOUR)
   ``` 
   Actual lifesaver. Replace `INTERVAL 2 HOUR` with a time delta long enough to where you are sure that the original table existed.
+
+### **Compute Engine VMs**
+* GCP's compute engine VMs with Debian don't come with Git or Python venv preinstalled, but do come with Python preinstalled. Run the following to install Git and Python venv:  
+  `sudo apt update && sudo apt install git`.  
+  `sudo apt install python3-venv`.  
+  Doublecheck Git and Python installations with `git --version` and `python3 --version`.  
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
