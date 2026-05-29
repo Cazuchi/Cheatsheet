@@ -26,8 +26,23 @@
   `sudo apt install python3-venv`.  
   Doublecheck Git and Python installations with `git --version` and `python3 --version`.
 
-* The venv activation command is different on Linux too, compared to Windows. Use this:
+* The venv activation command is different on Linux too, compared to Windows. Use this:  
   `source venv/bin/activate`  
+
+  For reference, this deactivates the currently active venv:  
+  `deactivate`
+
+  This deletes the venv folder:  
+  `rm -rf venv`.  
+
+  This creates a new venv:  
+  `python -m venv venv`.  
+
+* Debian doesn't come with Python 3.12.0 which can cause issues with pinned package numbers in a requirements.txt. Use this to strip the pins from a requirements.txt in this case and test if the script works without pinned packages versions:  
+  `sed -i 's/[><=!~].*//' requirements.txt`  
+
+  As a TEST, you can run it without the -i parameter first, which won't change the file and will instead just print the output in the terminal, so you can visually verify the change before commiting to saving it:  
+  `sed 's/[><=!~].*//' requirements.txt`  
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
