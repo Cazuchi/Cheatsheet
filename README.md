@@ -44,6 +44,9 @@
   As a TEST, you can run it without the -i parameter first, which won't change the file and will instead just print the output in the terminal, so you can visually verify the change before commiting to saving it:  
   `sed 's/[><=!~].*//' requirements.txt`  
 
+  To verify the content of requirements.txt afterwards:  
+  `cat requirements.txt`  
+
 ### **Docker**
 *The affected docker is based on what directory you're in!*
 * Spin up Docker:  
