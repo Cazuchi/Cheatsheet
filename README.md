@@ -52,7 +52,7 @@
 
   Crontab uses the format * * * * * to schedule tasks with the stars representing minutes, hours, day of month, month and day of week, respectively. Leaving a parameter as a * just means there's no rule for it, so the following would be the equivalent of running a script on the 10th, 20th and 28th of every month at 4 am:  
   `0 4 10,20,28 * *`.  
-  The crontab will run on the VM's schedule, which, for Google Compute Engine, defaults to UTC, which is 2 hours behind Copenhagen time. So the above example would run at 6 am Copenhagen time.  
+  The crontab will run on the VM's schedule, which, for Google Compute Engine, defaults to UTC, which is 2 hours behind Copenhagen time. So the above example would run at 6 am Copenhagen time. Check the VM timezone with `timedatectl`.  
   Crontab parameters can have multiple values seperated by a comma. All of `10,20,28` in the above example is related to the day of the month that the task runs on because the values are all together, seperated by a comma.  
 
   Python scripts will need the venv to run, so the format for actually running a script is `[time] [venv path to python.exe] [python script]`, like in this example:  
