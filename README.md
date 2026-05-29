@@ -59,6 +59,7 @@
   `0 4 10,20,28 * * /home/mha/CityDNA/venv/bin/python3 /home/mha/CityDNA/main.py`.  
 
   **The NANO editor in Debian is weird.. Ctrl+x --> Y --> Enter to save and exit.**  
+  Print out the crontab content with `crontab -l` to doublecheck.  
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
