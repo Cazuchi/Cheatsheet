@@ -24,7 +24,10 @@
 * GCP's compute engine VMs with Debian don't come with Git or Python venv preinstalled, but do come with Python preinstalled. Run the following to install Git and Python venv:  
   `sudo apt update && sudo apt install git`.  
   `sudo apt install python3-venv`.  
-  Doublecheck Git and Python installations with `git --version` and `python3 --version`.  
+  Doublecheck Git and Python installations with `git --version` and `python3 --version`.
+
+* The venv activation command is different on Linux too, compared to Windows. Use this:
+  `source venv/bin/activate`  
 
 ### **Docker**
 *The affected docker is based on what directory you're in!*
