@@ -139,6 +139,20 @@
 
   `git push origin --force --all` to push the updated history to your GitHub repo. `--force` is needed because GitHub will refuse to push otherwise since your local history doesn't align with the GitHub repo's history.  
 
+* Extracting elements from a GitHub repo into a new repo
+  Filter-repo can also be used if you want to extract elements from one repo and use them to build a new repo, like if you want to split a single repo in to multiple repos responsible for their own functionality.  
+  Make sure you have filter-repo installed: `pip install git-filter-repo`.  
+  Start by cloning the repo you want to extract elements from: `git clone [repo]`.  
+  
+  The structure of the command is `git filter-repo --path folder/ --path README.md --path-glob "*.py" --path-regex "^src/.*\.py$"`.  
+  Every element reference starts with `--path` and these can be chained.  
+  `--path folder/` copies a given folder.  
+  `--path README.md` copies a specific file - in this case the readme.md.  
+  `--path-glob "*.py"` is a pattern matching function - in this case it matches all .py files.  
+  `--path-regex "^scripts/.*\.py$"` allows for regex searches, in this case all .py files in the scripts folder.  
+
+  This deletes all unspecified files in the local repo rather than copying them to a new repo, so once this is done, change the name of the folder, point to a new repo with `git remote add origin repo` and push to that repo.  
+
 * MAKE THIS A HABIT every morning!  
   `git remote -v` check the repo  
   `git branch` check what branch I'm on. `git checkout [branch]` to switch  
