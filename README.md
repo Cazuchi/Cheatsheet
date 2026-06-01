@@ -53,6 +53,7 @@
 ### **Crontabs**
 > [!TIP]  
 > Use the `pwd` command in Debian to check the current directory.  
+> Use the `ls` command to see files in the current directory. Also works in PowerShell on Windows.  
 
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
