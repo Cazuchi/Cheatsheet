@@ -9,6 +9,7 @@
 * [File extensions](#file-extensions)
 * [Git](#git)
 * [GitHub](#github)
+* [Google IAM](#google-iam)
 * [PowerShell](#powershell)
 * [Python](#python)
 * [SQL](#sql)
@@ -187,7 +188,7 @@
 * Check if local repo is up to date with online repo:  
   `git fetch` --> `git status`
 
-### GitHub
+### **GitHub**
 GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax. **These have to be on the top-level of the markdown text. As in, they cannot be nested under a bulletpoint.**  
 
 Caution:  
@@ -209,6 +210,23 @@ Tips:
 Notes:  
 > [!NOTE]  
 > For regular notes.  
+
+### **Google IAM**
+> [!IMPORTANT]  
+> As a general rule-of-thumb. Aim to minimize permissions. So any given user or service accounts only has access to the specific functions or services that they need. Not out of lack of trust for the user (maybe sometimes depending on experience), but out of concern for if someone else manages to gain access to a given account. If that account's permissions are minimized, the potential damage is also minimized. 
+
+* Limiting service account access to secrets:  
+  Add `Secret Manager Secret Accessor` permission to your service account.  
+  Go to Secret Manager in GCP, click on the secret and copy the path at the top with a structure like `projects/[project number]/secrets/[secret name]`.  
+  Click `Add IAM condition` and add a condition for `name`, `starts with` and the secret path. `starts with` because the actually endpoint you're hitting when querying the secret is likely the secret path with `/version/latest` appended to it, to ensure you're getting the most up-to-date secret.
+
+* Limiting Compute Engine VMs access to GCP:
+  When setting up the VM, attach a service account with only the permissions needed for the VM to take the actions that you want, for instance:  
+  `BigQuery User permissions` to allow for the creation of dataset and tables. `BigQuery Users` have limited access to existing datasets and tables, but `ownership level` access to datasets and tables that it creates itself.  
+  `Secret Manager Secret Accessor permissions` to allow for the retrieval of, say, API keys or similar.  
+  Enable access to **ALL** GCP APIs for the VM. The VM will still only have the permissions equal to the permissions of the service account that you attach, but needs access to the same APIs in the VM settings. You're technically setting the permissions twice, which is tedious, but necessary. In the end, the VMs actual permissions are controlled by the attached Service Account, so choose "All APIs" in the VM settings is fine.  
+
+* Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
 ### **PowerShell**
 * IF PowerShell won't save the $PROFILE, it's because you need to create it first manually. Run this to create it:  
