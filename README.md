@@ -115,7 +115,7 @@
   The filter-repo package heavily encourages you to start from a freshly cloned local repo, because the file technically still exists in your local repo history until garbage cleanup, which takes 30 days unless you do it manually or modify the settings.  
   
 > [!CAUTION]
-> **THIS IS THE DANGEROUS PART!**[!CAUTION] If you don't include `--invert-paths` filter-repo will remove anything BUT the file you specify. `--invert-paths` inverts that to remove ONLY the specified file, but forgetting that parameter WILL DELETE most of your repo.  
+> **THIS IS THE DANGEROUS PART!** If you don't include `--invert-paths` filter-repo will remove anything BUT the file you specify. `--invert-paths` inverts that to remove ONLY the specified file, but forgetting that parameter WILL DELETE most of your repo.  
 
   Run `git filter-repo --path move-data-bq.ipynb --invert-paths` to remove the file from the repo and the repo's history. This will DELETE the file, so make a backup, if you need to keep it. If you're not starting from a freshly cloned repo it will refuse to run the command. Add `--force` at the end to run it anyway.
   If you run this on a local repo that isn't a fresh clone, it'll like be unable to delete some objects related to the file's history, because windows locks them. Just reply `n` to each. There will be alot, potentially. Git garbage cleanup will remove them eventually. 
