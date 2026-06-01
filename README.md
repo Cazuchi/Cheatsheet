@@ -6,6 +6,7 @@
 * [Crontabs](#crontabs)
 * [Docker](#docker)
 * [d-types](#d-types)
+* [File extensions](#file-extensions)
 * [Git](#git)
 * [GitHub](#github)
 * [PowerShell](#powershell)
