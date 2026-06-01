@@ -213,7 +213,7 @@ Notes:
 
 ### **Google IAM**
 > [!IMPORTANT]  
-> As a general rule-of-thumb, aim to minimize permissions. So any given user or service accounts only has access to the specific functions or services that they need. Not out of lack of trust for the user (maybe sometimes depending on experience), but out of concern for if someone else manages to gain access to a given account. If that account's permissions are minimized, the potential damage is also minimized. 
+> As a general rule-of-thumb, aim to minimize permissions. So any given user or service account only has access to the specific functions or services that they need. Not out of lack of trust for the user (maybe sometimes depending on experience), but out of concern for if someone else manages to gain access to a given account. If that account's permissions are minimized, the potential damage is also minimized. 
 
 * Limiting service account access to secrets:  
   Add `Secret Manager Secret Accessor` permission to your service account.  
