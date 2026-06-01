@@ -107,7 +107,7 @@
   Git doesn't use Windows' OpenSSH by default and might not read the SSH config initially. Use `git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"` to ensure that it reads the correct SSH config file and can connect to GitHub. This only needs to be done once. It's a global setting that's saved afterwards.  
 
 > [!CAUTION]
-> Note: **This is DANGEROUS. It WILL destroy your repo if you do it wrong**, but can be used to remove a file from a GitHub repo and the repo's entire history. 
+> Note: **The following is DANGEROUS. It WILL destroy your repo if you do it wrong**, but can be used to remove a file from a GitHub repo and the repo's entire history. 
 
 > [!IMPORTANT]  
 > The important thing is to remember `--invert-paths` in the first filter-repo command. That determines whether you're deleting a single file (the desired outcome) or everything in the repo EXCEPT that file.  
