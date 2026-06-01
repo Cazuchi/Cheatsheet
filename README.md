@@ -106,17 +106,17 @@
   
   Git doesn't use Windows' OpenSSH by default and might not read the SSH config initially. Use `git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"` to ensure that it reads the correct SSH config file and can connect to GitHub. This only needs to be done once. It's a global setting that's saved afterwards.  
 
-* **Removing a file from your GitHub repo's history**  
 > [!CAUTION]
-> Note: **This is DANGEROUS. It WILL destroy your repo if you do it wrong**, but can be used to remove a file from a GitHub repo and the repo's entire history.  
+> Note: **This is DANGEROUS. It WILL destroy your repo if you do it wrong**, but can be used to remove a file from a GitHub repo and the repo's entire history. 
 
+> [!IMPORTANT]  
+> The important thing is to remember `--invert-paths` in the first filter-repo command. That determines whether you're deleting a single file (the desired outcome) or everything in the repo EXCEPT that file.  
+* **Removing a file from your GitHub repo's history**  
   It's a pip install, so navigate to the local repo folder, activate the venv and run `pip install git-filter-repo`.  
   This example uses the filename `move-data-bq.ipynb` as an example.  
   The filter-repo package heavily encourages you to start from a freshly cloned local repo, because the file technically still exists in your local repo history until garbage cleanup, which takes 30 days unless you do it manually or modify the settings.  
   
-> [!CAUTION]
-> **THIS IS THE DANGEROUS PART!** If you don't include `--invert-paths` filter-repo will remove anything BUT the file you specify. `--invert-paths` inverts that to remove ONLY the specified file, but forgetting that parameter WILL DELETE most of your repo.  
-
+  **THIS IS THE DANGEROUS PART!** If you don't include `--invert-paths` filter-repo will remove anything BUT the file you specify. `--invert-paths` inverts that to remove ONLY the specified file, but forgetting that parameter WILL DELETE most of your repo.  
   Run `git filter-repo --path move-data-bq.ipynb --invert-paths` to remove the file from the repo and the repo's history. This will DELETE the file, so make a backup, if you need to keep it. If you're not starting from a freshly cloned repo it will refuse to run the command. Add `--force` at the end to run it anyway.
   If you run this on a local repo that isn't a fresh clone, it'll like be unable to delete some objects related to the file's history, because windows locks them. Just reply `n` to each. There will be alot, potentially. Git garbage cleanup will remove them eventually. 
 
