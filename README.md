@@ -105,7 +105,7 @@
   
   Git doesn't use Windows' OpenSSH by default and might not read the SSH config initially. Use `git config --global core.sshCommand "C:/Windows/System32/OpenSSH/ssh.exe"` to ensure that it reads the correct SSH config file and can connect to GitHub. This only needs to be done once. It's a global setting that's saved afterwards.  
 
-* **Removing a file from your GitHub repo's history**
+* **Removing a file from your GitHub repo's history**  
   Note: **This is DANGEROUS. It WILL destroy your repo if you do it wrong**, but can be used to remove a file from a GitHub repo and the repo's entire history.  
   It's a pip install, so navigate to the local repo folder, activate the venv and run `pip install git-filter-repo`.  
   This example uses the filename `move-data-bq.ipynb` as an example.  
@@ -121,7 +121,7 @@
 
   As a safety feature, filter-repo removes your git origin. Add it back with `git remote add origin [repo]`.  
 
-  `git push origin --force --all` to push the updated history to your GitHub repo.  
+  `git push origin --force --all` to push the updated history to your GitHub repo. `--force` is needed because GitHub will refuse to push otherwise since your local history doesn't align with the GitHub repo's history.  
 
 * MAKE THIS A HABIT every morning!  
   `git remote -v` check the repo  
