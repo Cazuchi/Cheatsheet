@@ -164,24 +164,24 @@
 * GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax.  
 
   Caution:  
-  >[!CAUTION]  
-  >Use this to highlight critical notes, like commands that will irreversibly damage your project if implemented incorrectly or carelessly.  
+  > [!CAUTION]  
+  > Use this to highlight critical notes, like commands that will irreversibly damage your project if implemented incorrectly or carelessly.  
 
   Warnings:  
-  >[!WARNING]  
-  >Similar to the above, but for less dangerous commands.  
+  > [!WARNING]  
+  > Similar to the above, but for less dangerous commands.  
 
   Important:  
-  >[!IMPORTANT]  
-  >For important notes.  
+  > [!IMPORTANT]  
+  > For important notes.  
 
   Tips:
-  >[!TIP]  
-  >For useful tips.  
+  > [!TIP]  
+  > For useful tips.  
 
   Notes:  
-  >[!NOTE]  
-  >For regular notes.  
+  > [!NOTE]  
+  > For regular notes.  
 
 ### **PowerShell**
 * IF PowerShell won't save the $PROFILE, it's because you need to create it first manually. Run this to create it:  
