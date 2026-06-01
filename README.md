@@ -111,6 +111,9 @@
 
 > [!IMPORTANT]  
 > The important thing is to remember `--invert-paths` in the first filter-repo command. That determines whether you're deleting a single file (the desired outcome) or everything in the repo EXCEPT that file.  
+
+> [!NOTE]  
+> This will REMOVE any changes you have made to the local repo, but haven't pushed yet. Keep this in mind, because if you're doing this to exclude a filetype, for instance, and the .gitignore addition hasn't been pushed before doing this, you're going to be repeating this entire process again. Ask me how I know, lol...  
 * **Removing a file from your GitHub repo's history**  
   It's a pip install, so navigate to the local repo folder, activate the venv and run `pip install git-filter-repo`.  
   This example uses the filename `move-data-bq.ipynb` as an example.  
