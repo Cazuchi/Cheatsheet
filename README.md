@@ -161,27 +161,27 @@
   `git fetch` --> `git status`
 
 ### GitHub
-* GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax.  
+GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax.  
 
-  Caution:  
-  > [!CAUTION]  
-  > Use this to highlight critical notes, like commands that will irreversibly damage your project if implemented incorrectly or carelessly.  
+Caution:  
+> [!CAUTION]  
+> Use this to highlight critical notes, like commands that will irreversibly damage your project if implemented incorrectly or carelessly.  
 
-  Warnings:  
-  > [!WARNING]  
-  > Similar to the above, but for less dangerous commands.  
+Warnings:  
+> [!WARNING]  
+> Similar to the above, but for less dangerous commands.  
 
-  Important:  
-  > [!IMPORTANT]  
-  > For important notes.  
+Important:  
+> [!IMPORTANT]  
+> For important notes.  
 
-  Tips:
-  > [!TIP]  
-  > For useful tips.  
+Tips:
+> [!TIP]  
+> For useful tips.  
 
-  Notes:  
-  > [!NOTE]  
-  > For regular notes.  
+Notes:  
+> [!NOTE]  
+> For regular notes.  
 
 ### **PowerShell**
 * IF PowerShell won't save the $PROFILE, it's because you need to create it first manually. Run this to create it:  
