@@ -51,6 +51,9 @@
   `cat requirements.txt`  
 
 ### **Crontabs**
+> [!TIP]  
+> Use the `pwd` command in Debian to check the current directory.  
+
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
   Crontab uses the format * * * * * to schedule tasks with the stars representing minutes, hours, day of month, month and day of week, respectively. Leaving a parameter as a * just means there's no rule for it, so the following would be the equivalent of running a script on the 10th, 20th and 28th of every month at 4 am:  
