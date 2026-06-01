@@ -80,6 +80,9 @@
   `pd.read_parquet()` instead of `pd.read_excel()`  
   Unless it absolutely has to be used in excel afterwards.  
 
+### **File extensions**
+* Turn on file extensions in windows explorer's visual settings. You can change a file's extension without impacting the file at all. As in, you can take a .sav file, for instance. rename it to .sav.backup and Windows won't know how to open it, which can help prevent confusion if you need to have multiple files stored with similar names. Change it back to .sav at any time and it'll function as a normal .sav file.  
+
 ### **Git**
 * **SETTING UP SSH access to GitHub** (easier for switching between accounts than HTTPS authentication):  
   
