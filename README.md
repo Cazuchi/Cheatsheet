@@ -163,7 +163,7 @@
   `git fetch` --> `git status`
 
 ### GitHub
-GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax.  
+GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax. **These have to be on the top-level of the markdown text. As in, they cannot be nested under a bulletpoint.**  
 
 Caution:  
 > [!CAUTION]  
