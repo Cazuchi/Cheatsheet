@@ -13,6 +13,7 @@
 * [PowerShell](#powershell)
 * [Python](#python)
 * [SQL](#sql)
+* [VS Code](#vs-code)
 * [Miscellaneous](#miscellaneous)
 
 ### **BigQuery** 
@@ -360,6 +361,11 @@ Notes:
   ```
 
 * JOIN statements - THIS APPLIES TO PANDAS AS WELL. The DIRECTION of the join statement specifies which table is protected. LEFT and RIGHT joins respectively keep all of the rows in the LEFT or RIGHT table, but drops any row from the other table without a match. INNER only keeps rows that match ACROSS BOTH TABLES. FULL OUTER JOIN (just "outer" in Pandas) protects BOTH tables and includes rows that DO NOT have a match across the two tables. In practice, RIGHT joins are pointless - just memorize the LEFT join function and switch the order of the tables depending on which needs protection.
+
+### **VS Code**
+* VS Code's autodetecting of interpreters for Jupyter notebooks is incredibly unreliable.  
+  Use `Ctrl+Shift+P` to jump to the search bar, search for `Python: Select Interpreter` and manually navigate to the Python.exe inside `.\.venv\Scripts\`.  
+  That's the only way I've found to consistently select an interpreter.  
 
 ### **Miscellaneous**
 * Backtick for code blocks:  
