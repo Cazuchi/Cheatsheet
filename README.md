@@ -233,6 +233,12 @@ Notes:
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
 ### **PowerShell**
+* Create a folder with `mkdir [folder name]`.  
+  Delete a folder with `remove-item -Recurse -Force [folder name]`.  
+  Check items in a directory with `ls`.  
+  Move into a directory with `cd [folder name]`.  
+  Move out of a directory with `cd ..`.  
+
 * IF PowerShell won't save the $PROFILE, it's because you need to create it first manually. Run this to create it:  
   `New-Item -ItemType Directory -Force -Path (Split-Path $PROFILE)`
 
