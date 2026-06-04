@@ -246,6 +246,7 @@ Notes:
         VALUES('Monthly_data'[Destination]),
         ...
   ```
+  This evaluates whatever criteria you want for *each* destination in the `Monthly_data` table.  
 
 ### **PowerShell**
 * Create a folder with `mkdir [folder name]`.  
