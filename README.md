@@ -1,5 +1,5 @@
 # **Cheatsheet**
-Basic commands like df.groupby() in Python and similar are not included in this document, because this is (almost) exclusively meant as a reference guide for troubleshooting steps and gotchas for different scenarios. Function names and general syntax is a 2 second look-up with an LLM or Google.  
+Basic commands like df.groupby() in Python and similar are not included in this document, because this is (almost) exclusively meant as a reference guide for troubleshooting steps and gotchas for different scenarios. Function names and general syntax is a 2 second look-up with a LLM or Google.  
 >[!NOTE]
 >This cheatsheet uses html tags to add search functionality as an alternate way to navigating the cheatsheet by the index below. Not all entries have tags, but they follow the structure `Category/Sub-category` and these are the available tags at this moment in time:  
 >
