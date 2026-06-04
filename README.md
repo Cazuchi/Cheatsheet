@@ -1,11 +1,12 @@
 # **Cheatsheet**
 
-This cheatsheet uses html tags to add search functionality as an alternate way to navigating the cheatsheet by the index below. Not all entries have tags, but they follow the structure `Category/Sub-category` and these are the available tags at this moment in time:  
-
-<kbd>BigQuery/Timetravel</kbd> <kbd>Git/SSH-access</kbd> <kbd>Git/Deleting-a-file-from-history</kbd>  <kbd>Git/Splitting-repos</kbd> <kbd>Git/Morning-routine</kbd>  
-<kbd>GoogleIAM/Limiting-access</kbd>  <kbd>PowerBI/Evaluating-criteria-per-category</kbd> <kbd>PowerBI/Slicer</kbd> <kbd>Venv/Management</kbd>  <kbd>JOIN-statements/SQL-Pandas</kbd>  
-
-Tags are mostly used for longer entries that are less easily scanable when looking for a specific entry.  
+>[!NOTE]
+>This cheatsheet uses html tags to add search functionality as an alternate way to navigating the cheatsheet by the index below. Not all entries have tags, but they follow the structure `Category/Sub-category` and these are the available tags at this moment in time:  
+>
+><kbd>BigQuery/Timetravel</kbd> <kbd>Git/SSH-access</kbd> <kbd>Git/Deleting-a-file-from-history</kbd>  <kbd>Git/Splitting-repos</kbd> <kbd>Git/Morning-routine</kbd>  
+><kbd>GoogleIAM/Limiting-access</kbd>  <kbd>PowerBI/Evaluating-criteria-per-category</kbd> <kbd>PowerBI/Slicer</kbd> <kbd>Venv/Management</kbd>  <kbd>JOIN-statements/SQL-Pandas</kbd>  
+>
+>Tags are mostly used for longer entries that are less easily scanable when looking for a specific entry.  
 
 ### **Index**
 * [BigQuery](#bigquery)
