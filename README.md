@@ -1,5 +1,12 @@
 # **Cheatsheet**
 
+This cheatsheet uses html tags to add search functionality as an alternate way to navigating the cheatsheet by the index below. Not all entries have tags, but they follow the structure `Category/Sub-category` and these are the available tags at this moment in time:  
+<kbd>BigQuery/Timetravel</kbd> <kbd>Git/SSH-access</kbd> <kbd>Git/Deleting-a-file-from-history</kbd>  
+<kbd>Git/Splitting-repos</kbd> <kbd>Git/Morning-routine</kbd> <kbd>GoogleIAM/Limiting-access</kbd>  
+<kbd>PowerBI/Evaluating-criteria-per-category</kbd> <kbd>PowerBI/Slicer</kbd> <kbd>Venv/Management</kbd>  
+<kbd>JOIN-statements/SQL-Pandas</kbd>  
+Tags are mostly used for longer entries that are less easily scanable when looking for a specific entry.  
+
 ### **Index**
 * [BigQuery](#bigquery)
 * [Compute Engine VMs](#compute-engine-vms)
@@ -18,7 +25,7 @@
 * [Miscellaneous](#miscellaneous)
 
 ### **BigQuery** 
-* BigQuery timetravel. Bigquery stores snapshots of tables for 7 days. Use this to restore a BigQuery table to a previous snapshot: 
+* <kbd>BigQuery/Timetravel</kbd> BigQuery timetravel. Bigquery stores snapshots of tables for 7 days. Use this to restore a BigQuery table to a previous snapshot: 
   ```sql
   CREATE OR REPLACE TABLE `your_project.your_dataset.your_table` AS
   SELECT * FROM `your_project.your_dataset.your_table`
@@ -92,7 +99,7 @@
 * Turn on file extensions in windows explorer's visual settings. You can change a file's extension without impacting the file at all. As in, you can take a .sav file, for instance. rename it to .sav.backup and Windows won't know how to open it, which can help prevent confusion if you need to have multiple files stored with similar names. Change it back to .sav at any time and it'll function as a normal .sav file.  
 
 ### **Git**
-* **SETTING UP SSH access to GitHub** (easier for switching between accounts than HTTPS authentication):  
+* <kbd>Git/SSH-access</kbd> **SETTING UP SSH access to GitHub** (easier for switching between accounts than HTTPS authentication):  
   
   Start by creating an SSH key in PowerShell:  
   `ssh-keygen -t ed25519 -C "email@email.com" -f "$HOME\.ssh\id_ed25519_personal"`.  
@@ -125,7 +132,7 @@
 
 > [!NOTE]  
 > This will REMOVE any changes you have made to the local repo, but haven't pushed yet. Keep this in mind, because if you're doing this to exclude a filetype, for instance, and the .gitignore addition hasn't been pushed before doing this, you're going to be repeating this entire process again. Ask me how I know, lol...  
-* **Removing a file from your GitHub repo's history**  
+* <kbd>Git/Deleting-a-file-from-history</kbd> **Removing a file from your GitHub repo's history**  
   It's a pip install, so navigate to the local repo folder, activate the venv and run `pip install git-filter-repo`.  
   This example uses the filename `move-data-bq.ipynb` as an example.  
   The filter-repo package heavily encourages you to start from a freshly cloned local repo, because the file technically still exists in your local repo history until garbage cleanup, which takes 30 days unless you do it manually or modify the settings.  
@@ -142,7 +149,7 @@
 
   `git push origin --force --all` to push the updated history to your GitHub repo. `--force` is needed because GitHub will refuse to push otherwise since your local history doesn't align with the GitHub repo's history.  
 
-* Extracting elements from a GitHub repo into a new repo
+* <kbd>Git/Splitting-repos</kbd> Extracting elements from a GitHub repo into a new repo
   Filter-repo can also be used if you want to extract elements from one repo and use them to build a new repo, like if you want to split a single repo in to multiple repos responsible for their own functionality.  
   Make sure you have filter-repo installed: `pip install git-filter-repo`.  
   Start by cloning the repo you want to extract elements from: `git clone [repo]`.  
@@ -156,7 +163,7 @@
 
   This deletes all unspecified files in the local repo rather than copying them to a new repo, so once this is done, change the name of the folder, point to a new repo with `git remote add origin repo` and push to that repo.  
 
-* MAKE THIS A HABIT every morning!  
+* <kbd>Git/Morning-routine</kbd> MAKE THIS A HABIT every morning!  
   `git remote -v` check the repo  
   `git branch` check what branch I'm on. `git checkout [branch]` to switch  
   `git fetch` to get the newest version from github  
@@ -223,12 +230,12 @@ Notes:
 > [!IMPORTANT]  
 > As a general rule-of-thumb, aim to minimize permissions. So any given user or service account only has access to the specific functions or services that they need. Not out of lack of trust for the user (maybe sometimes depending on experience), but out of concern for if someone else manages to gain access to a given account. If that account's permissions are minimized, the potential damage is also minimized. 
 
-* Limiting service account access to secrets:  
+* <kbd>GoogleIAM/Limiting-access</kbd> Limiting service account access to secrets:  
   Add `Secret Manager Secret Accessor` permission to your service account.  
   Go to Secret Manager in GCP, click on the secret and copy the path at the top with a structure like `projects/[project number]/secrets/[secret name]`.  
   Click `Add IAM condition` and add a condition for `name`, `starts with` and the secret path. `starts with` because the actually endpoint you're hitting when querying the secret is likely the secret path with `/version/latest` appended to it, to ensure you're getting the most up-to-date secret.
 
-* Limiting Compute Engine VMs access to GCP:
+* <kbd>GoogleIAM/Limiting-access</kbd> Limiting Compute Engine VMs access to GCP:
   When setting up the VM, attach a service account with only the permissions needed for the VM to take the actions that you want, for instance:  
   `BigQuery User permissions` to allow for the creation of dataset and tables. `BigQuery Users` have limited access to existing datasets and tables, but `ownership level` access to datasets and tables that it creates itself.  
   `Secret Manager Secret Accessor permissions` to allow for the retrieval of, say, API keys or similar.  
@@ -239,7 +246,7 @@ Notes:
 ### **PowerBi**
 * <kbd>PowerBI/Slicer</kbd> Variables in synced slicers across pages are **PERMANENT**. In the sense that if you copy/paste your slicers to a new page, choose to sync them to other pages and then change what variable is shown in a given slicer, it will change the variable in that slicer on the other pages too, which is going to break visuals on the other pages. You **CAN** delete a slicer on the new page and it won't affect that same slicer on other pages. Then just create a new slicer with the new variable.  
 
-* When creating measures that are supposed to evaluate criteria on a per-category basis, make sure to "loop" over the categories in the measure. As an **example** this would be a way to evaluate criteria per destination in a measure (from a tourism dataset):  
+* <kbd>PowerBI/Evaluating-criteria-per-category</kbd> When creating measures that are supposed to evaluate criteria on a per-category basis, make sure to "loop" over the categories in the measure. As an **example** this would be a way to evaluate criteria per destination in a measure (from a tourism dataset):  
   ```sql
   VAR return_value =
     SUMX(
@@ -288,22 +295,22 @@ Notes:
   `Copy-Item old_name.filetype new_name.filetype`
 
 ### **Python**
-* Create virtual environment. The second ".venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named .venv, so leave as default unless it's important to have a different name for the environment:  
+* <kbd>Venv/Management</kbd> Create virtual environment. The second ".venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named .venv, so leave as default unless it's important to have a different name for the environment:  
   `python -m venv .venv`
 
-* Check the path to the ACTIVE virtual environment to confirm which is being used (like when you have multiple venvs called "venv"):  
+* <kbd>Venv/Management</kbd> Check the path to the ACTIVE virtual environment to confirm which is being used (like when you have multiple venvs called "venv"):  
   `$env:VIRTUAL_ENV`  
 
-* Dump all installed packages to a requirements.txt files (includes specific version numbers):  
+* <kbd>Venv/Management</kbd> Dump all installed packages to a requirements.txt files (includes specific version numbers):  
   `pip freeze > requirements.txt`.  
 
-  If you DON'T want pinned versions, use pipreqs instead or run this in PowerShell to strip version numbers:  
+  <kbd>Venv/Management</kbd> If you DON'T want pinned versions, use pipreqs instead or run this in PowerShell to strip version numbers:  
   `pip freeze | ForEach-Object { $_ -replace '[><=!~].*', '' } | Out-File requirements.txt`.  
 
-* Install all packages from a requirements.txt file (-r specifies that you want pip to read from a file. The filename doesn't matter - the structure of the file does. Requirements.txt is the norm tho'):  
+* <kbd>Venv/Management</kbd> Install all packages from a requirements.txt file (-r specifies that you want pip to read from a file. The filename doesn't matter - the structure of the file does. Requirements.txt is the norm tho'):  
   `pip install -r requirements.txt`
 
-* When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.  
+* <kbd>Venv/Management</kbd> When VS Code doesn't automatically register your python kernel in Jupyter Lab (shouldn't be a problem with [Project folder] > [venv folder] type folder structure, but just in case). The name in the command can be whatever. It doesn't actually matter, but display-name determines what's shown in VS Code.  
   `python -m ipykernel install --user --name=venv --display-name "Python (venv)"`
 
 * For replacing values in a dataframe, use one of the following:  
@@ -375,10 +382,10 @@ Notes:
   ORDER BY column1 ASC
   ```
 
-* JOIN statements - THIS APPLIES TO PANDAS AS WELL. The DIRECTION of the join statement specifies which table is protected. LEFT and RIGHT joins respectively keep all of the rows in the LEFT or RIGHT table, but drops any row from the other table without a match. INNER only keeps rows that match ACROSS BOTH TABLES. FULL OUTER JOIN (just "outer" in Pandas) protects BOTH tables and includes rows that DO NOT have a match across the two tables. In practice, RIGHT joins are pointless - just memorize the LEFT join function and switch the order of the tables depending on which needs protection.
+* <kbd>JOIN-statements/SQL-Pandas</kbd> JOIN statements - THIS APPLIES TO PANDAS AS WELL. The DIRECTION of the join statement specifies which table is protected. LEFT and RIGHT joins respectively keep all of the rows in the LEFT or RIGHT table, but drops any row from the other table without a match. INNER only keeps rows that match ACROSS BOTH TABLES. FULL OUTER JOIN (just "outer" in Pandas) protects BOTH tables and includes rows that DO NOT have a match across the two tables. In practice, RIGHT joins are pointless - just memorize the LEFT join function and switch the order of the tables depending on which needs protection.
 
 ### **VS Code**
-* VS Code's autodetecting of interpreters for Jupyter notebooks is incredibly unreliable.  
+* <kbd>Venv/Management</kbd> VS Code's autodetecting of interpreters for Jupyter notebooks is incredibly unreliable.  
   Use `Ctrl+Shift+P` to jump to the search bar, search for `Python: Select Interpreter` and manually navigate to the Python.exe inside `.\.venv\Scripts\`.  
   That's the only way I've found to consistently select an interpreter.  
 
