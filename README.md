@@ -193,7 +193,7 @@
 ### **GitHub**
 GitHub has a set of highlights that you can use in markdown files to highlight specific parts. All of them require `>` infront of each line - that is what tells GitHub what range of your text should be highlighted with the given highlight syntax. **These have to be on the top-level of the markdown text. As in, they cannot be nested under a bulletpoint.**  
 
-The syntax is:  
+The syntax is the following **without** the space after `>`:  
 `> [tag]` (!CAUTION, !WARNING, !IMPORTANT, !TIP or !NOTE)  
 `> text`
 
@@ -217,6 +217,8 @@ Notes:
 > [!NOTE]  
 > For regular notes.  
 
+* Github supports HTML tags to an extend, which are used in this cheatsheet as my search tags (example <kbd>PowerBI/Slicer</kbd>). The structure is
+
 ### **Google IAM**
 > [!IMPORTANT]  
 > As a general rule-of-thumb, aim to minimize permissions. So any given user or service account only has access to the specific functions or services that they need. Not out of lack of trust for the user (maybe sometimes depending on experience), but out of concern for if someone else manages to gain access to a given account. If that account's permissions are minimized, the potential damage is also minimized. 
@@ -235,7 +237,7 @@ Notes:
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
 ### **PowerBi**
-* <kbd>PowerBI/Slicer</kbd> Variables in synced slicers across pages are **PERMANENT**. In the sense that if you copy/paste your slicers to a new page, choose to sync them to other pages and then change what variable is shown in a given slicer, it will change the variable in that slicer on the other pages too, which is going to break visuals on the other pages. You **CAN** delete a slicer on the new page and it won't affect that same slicer on other pages. Then just create a new slicer with the new variable.  
+* <kbd>PowerBI/Slicer</kbd> <mark>PowerBI/Slicer</mark> Variables in synced slicers across pages are **PERMANENT**. In the sense that if you copy/paste your slicers to a new page, choose to sync them to other pages and then change what variable is shown in a given slicer, it will change the variable in that slicer on the other pages too, which is going to break visuals on the other pages. You **CAN** delete a slicer on the new page and it won't affect that same slicer on other pages. Then just create a new slicer with the new variable.  
 
 * When creating measures that are supposed to evaluate criteria on a per-category basis, make sure to "loop" over the categories in the measure. As an **example** this would be a way to evaluate criteria per destination in a measure (from a tourism dataset):  
   ```sql
