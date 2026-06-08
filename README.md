@@ -103,9 +103,13 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 ### **GeoJSON**  
 * **Creating geographic polygons and measuring their area in km²**  
   Start by going to [geojson.io](https://geojson.io/) and drawing your polygons.  
+
   In the feature editor at the bottom center of the screen, open the editor and add a property called "Name". This will add it to all polygons that you create. Fill it out for all polygons.  
+
   When you have drawn all of the polygons, export the .geojson file without truncating the coordinates.  
+
   Upload the geojson file to [mapshaper](https://mapshaper.org/) and run this command in the console, which will add a property with an estimated size of the area in km²: `each 'area_km2=$.area / 1e6'`  
+
   Download that file and run it through this Python script to get a simple overview of each area's name and size:  
   ```python  
   import json  
@@ -116,7 +120,9 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   for i in data['features']:  
     print(f'Name of area: {i['properties']['Name']}, size of area: {round(i['properties']['area_km2'], 2)} km²')  
   ```  
+
   This will create a printout similar to the following, which can then be customized however you want to:  
+  
   ```  
   Name of area: Stroeget, size of area: 0.04 km²  
   Name of area: Kongens Have, size of area: 0.12 km²  
