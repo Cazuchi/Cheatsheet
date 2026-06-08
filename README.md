@@ -292,6 +292,8 @@ Notes:
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
 ### **PowerBi**
+* To get dynamic labels to be in the vertical center of card visuals, go to `format` --> `callout` --> `padding`, turn on individual padding and **ONLY** add padding on the bottom, like 10-15 pixels. Maybe add 5 pixels of padding on the left side too, so push it in a bit.  
+
 * <kbd>PowerBI/Z-levels</kbd> **Check the damn z-levels on visuals!**  
   When editing interactions between elements on a page, if a visual isn't responding to changing interactions like you'd expect, check if the buttons belong to the correct visualization.  
 
