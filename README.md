@@ -118,11 +118,11 @@ Basic commands like df.groupby() in Python and similar are not included in this 
     data = json.load(f)  
 
   for i in data['features']:  
-    print(f'Name of area: {i['properties']['Name']}, size of area: {round(i['properties']['area_km2'], 2)} km²')  
+    print(f"Name of area: {i['properties']['Name']}, size of area: {round(i['properties']['area_km2'], 2)} km²")  
   ```  
 
   This will create a printout similar to the following, which can then be customized however you want to:  
-  
+
   ```  
   Name of area: Stroeget, size of area: 0.04 km²  
   Name of area: Kongens Have, size of area: 0.12 km²  
