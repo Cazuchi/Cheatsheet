@@ -4,7 +4,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 >This cheatsheet uses html tags to add search functionality as an alternate way to navigating the cheatsheet by the index below. Not all entries have tags, but they follow the structure `Category/Sub-category` and these are the available tags at this moment in time:  
 >
 ><kbd>BigQuery/Timetravel</kbd> <kbd>Git/SSH-access</kbd> <kbd>Git/Deleting-a-file-from-history</kbd>  <kbd>Git/Splitting-repos</kbd> <kbd>Git/Morning-routine</kbd>  
-><kbd>GoogleIAM/Limiting-access</kbd>  <kbd>PowerBI/Evaluating-criteria-per-category</kbd> <kbd>PowerBI/Slicer</kbd> <kbd>Venv/Management</kbd>  <kbd>JOIN-statements/SQL-Pandas</kbd>  
+><kbd>GoogleIAM/Limiting-access</kbd>  <kbd>PowerBI/Evaluating-criteria-per-category</kbd> <kbd>PowerBI/Z-levels</kbd> <kbd>PowerBI/Slicer</kbd> <kbd>Venv/Management</kbd>  <kbd>JOIN-statements/SQL-Pandas</kbd>  
 >
 >Tags are mostly used for longer entries that are less easily scanable when looking for a specific entry.  
 
@@ -292,13 +292,13 @@ Notes:
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
 ### **PowerBi**
-* **Check the damn z-levels on visuals!**  
+* <kbd>PowerBI/Z-levels</kbd> **Check the damn z-levels on visuals!**  
   When editing interactions between elements on a page, if a visual isn't responding to changing interactions like you'd expect, check if the buttons belong to the correct visualization.  
 
   If you have, say, a matrix on z-level 1 and a textbox on z-level 2 above it, the buttons that appear for editing interactions can look like they belong to the matrix, but they will actually belong to the textbox and the matrix won't react to changing the settings.  
 
   Move the matrix to a higher z-level than the textbox around it or move the textbox out of the way temporarily and the buttons for choosing interactions for the matrix will appear.. jesus ..  
-  
+
   If you hover over the edit interactions buttons on a visual it'll add a faint highlight to the visual that they belong to, which can help identify issues too.  
 
 * <kbd>PowerBI/Slicer</kbd> Variables in synced slicers across pages are **PERMANENT**. In the sense that if you copy/paste your slicers to a new page, choose to sync them to other pages and then change what variable is shown in a given slicer, it will change the variable in that slicer on the other pages too, which is going to break visuals on the other pages. You **CAN** delete a slicer on the new page and it won't affect that same slicer on other pages. Then just create a new slicer with the new variable.  
