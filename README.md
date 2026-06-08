@@ -99,6 +99,41 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 ### **File extensions**
 * Turn on file extensions in windows explorer's visual settings. You can change a file's extension without impacting the file at all. As in, you can take a .sav file, for instance. rename it to .sav.backup and Windows won't know how to open it, which can help prevent confusion if you need to have multiple files stored with similar names. Change it back to .sav at any time and it'll function as a normal .sav file.  
 
+### **GeoJson**
+* **Creating geographic polygons and measuring their area in km²**  
+  Start by going to [geojson.io](https://geojson.io/) and drawing your polygons.  
+  In the feature editor at the bottom center of the screen, open the editor and add a property called "Name". This will add it to all polygons that you create. Fill it out for all polygons.  
+  When you have drawn all of the polygons, export the .geojson file without truncating the coordinates.  
+  Upload the geojson file to [mapshaper](https://mapshaper.org/) and run this command in the console, which will add a property with an estimated size of the area in km²: `each 'area_km2=$.area / 1e6'`  
+  Download that file and run it through this Python script to get a simple overview of each area's name and size:  
+  ```python  
+  import json  
+  
+  with open(r"C:\[path]\POIs with area size.json") as f:  
+    data = json.load(f)  
+
+  for i in data['features']:  
+    print(f'Name of area: {i['properties']['Name']}, size of area: {round(i['properties']['area_km2'], 2)} km²')  
+  ```  
+  This will create a printout similar to the following, which can then be customized however you want to:  
+  ```  
+  Name of area: Stroeget, size of area: 0.04 km²  
+  Name of area: Kongens Have, size of area: 0.12 km²  
+  Name of area: Kongens Nytorv, size of area: 0.01 km²  
+  Name of area: Nyhavn, size of area: 0.01 km²  
+  Name of area: Bella_center, size of area: 0.06 km²  
+  Name of area: Norreport_station, size of area: 0.01 km²  
+  Name of area: Hovedbanegaarden, size of area: 0.02 km²  
+  Name of area: Noerrebro_station, size of area: 0.0 km²  
+  Name of area: Copenhagen_South_station, size of area: 0.02 km²  
+  Name of area: Copenhagen_airport_station, size of area: 0.01 km²  
+  Name of area: Botanical_Garden, size of area: 0.09 km²  
+  Name of area: Helsingor_Station, size of area: 0.01 km²  
+  Name of area: Helsingor_Center_og_Stengade, size of area: 0.02 km²  
+  Name of area: Louisiana_Museum, size of area: 0.03 km²  
+  Name of area: Roskilde_station, size of area: 0.02 km²  
+  ```  
+
 ### **Git**
 * <kbd>Git/SSH-access</kbd> **SETTING UP SSH access to GitHub** (easier for switching between accounts than HTTPS authentication):  
   
@@ -170,6 +205,11 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   `git fetch` to get the newest version from github  
   `git status` check if the local repo is up to date  
   `git pull` if it isn't  
+
+* If you forgot to pull the newest version of the remote repo before applying changes, you can use the `git stash` command to fix it.  
+  `git stash` saves your changes, but removes them from the file.  
+  Then run `git pull` to get up to date with the remote repo.  
+  Then run `git stash pop` to reapply the saved changes and push them to the remote repo as normal.  
 
 * Check current repo:  
   `git remote -v`
