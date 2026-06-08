@@ -15,6 +15,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Docker](#docker)
 * [d-types](#d-types)
 * [File extensions](#file-extensions)
+* [GeoJSON](#geojson)
 * [Git](#git)
 * [GitHub](#github)
 * [Google IAM](#google-iam)
@@ -99,7 +100,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 ### **File extensions**
 * Turn on file extensions in windows explorer's visual settings. You can change a file's extension without impacting the file at all. As in, you can take a .sav file, for instance. rename it to .sav.backup and Windows won't know how to open it, which can help prevent confusion if you need to have multiple files stored with similar names. Change it back to .sav at any time and it'll function as a normal .sav file.  
 
-### **GeoJson**
+### **GeoJSON**  
 * **Creating geographic polygons and measuring their area in km²**  
   Start by going to [geojson.io](https://geojson.io/) and drawing your polygons.  
   In the feature editor at the bottom center of the screen, open the editor and add a property called "Name". This will add it to all polygons that you create. Fill it out for all polygons.  
