@@ -354,6 +354,23 @@ Notes:
   `Copy-Item old_name.filetype new_name.filetype`
 
 ### **Python**
+* **TLDR for requests**  
+  Requests is NOT a standard library. Pip install it.  
+
+  **Authentication**  
+  * Basic authentication is just `auth=("[USERNAME]", "[PASSWORD]")` in the requests call, but some APIs require you to grab a token from an auth endpoint first and sending that instead, in which case it's just a parameter in the url, like shown under GET requests below.  
+  * Doing the above just tells the requests library to put the information inside the authorization header, which is the equivalent of defining the header yourself.  
+  
+  **GET requests**  
+  * Used for retrieving data.  
+  * Postman documentation will often include empty payload and headers variables. Ignore them. They are generally NOT used in GET requests.  
+  * Parameters go in the url, with the structure usually being `endpoint?param#1&param#2` etc., but structure params as a dictionary and reference it as `params=params` in the requests call and the requests library will automatically format them correctly into the url before sending the request.  
+  
+  **POST requests**
+  * Used for sending data.  
+  * DOES use payloads and headers to send data to the server.  
+  * Payload is either formatted as json (`json=payload` inside the request function call) or form-encoded (`data=payload`). Depends on what the API expects.  
+
 * <kbd>Venv/Management</kbd> Create virtual environment. The second ".venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named .venv, so leave as default unless it's important to have a different name for the environment:  
   `python -m venv .venv`
 
