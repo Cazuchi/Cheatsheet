@@ -376,6 +376,7 @@ Notes:
   * Other packages (not pandas) might expect a file-like object from bytes instead of a string, which can be done using `io.BytesIO(result.content)` instead.  
   * File-like just means it functions the same way a file read from the filesystem, with the same usable function-calls, like `.read()`, `.seek()` and `.tell()`. 
   * XML was created by the devil to torture programmers. Use xmltodict to navigate it (or ElementTree if you're absolutely forced to, lol).  
+    * Sidenote, xmltodict returns a dict when tags only appear once and a list when tags appear multiple times. Still better than ElementTree for exploration, but worth checking for.  
 
 * <kbd>Venv/Management</kbd> Create virtual environment. The second ".venv" is the name of the environment, which technically doesn't matter, but some programs (like VS Code) autodetect the environment IF it's named .venv, so leave as default unless it's important to have a different name for the environment:  
   `python -m venv .venv`
