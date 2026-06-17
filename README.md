@@ -14,6 +14,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Crontabs](#crontabs)
 * [Docker](#docker)
 * [d-types](#d-types)
+* [Fabric notebooks](#fabric-notebooks)
 * [File extensions](#file-extensions)
 * [GeoJSON](#geojson)
 * [Git](#git)
@@ -96,6 +97,32 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   `df.to_parquet([FILENAME OR RAW PATH], index=False)` instead of `df.to_excel([FILENAME OR RAW PATH], index=False)`  
   `pd.read_parquet()` instead of `pd.read_excel()`  
   Unless it absolutely has to be used in excel afterwards.  
+
+### **Fabric notebooks**
+* Fabric notebooks connect to a lakehouse. Under `Explorer` in the left hand side, choose `Data items` --> `Add data items` and choose the lakehouse that you want the notebook to be connected to.  
+  This means that you **DO NOT** need lakehouse references when running spark commands.  
+
+* Fabric notebooks require spark dataframes to interact with lakehouse tables.  
+  Use `df = spark.createDataFrame(df)` to convert a pandas dataframe to a spark dataframe.  
+  Use `df = df.toPandas()` to convert a spark dataframe to a pandas dataframe.  
+
+* To create a new table in the connected lakehouse, use `df.write.mode('overwrite').saveAsTable('[TABLE NAME]')`.  
+
+* To retrieve an existing table, use `df = spark.table('[TABLE NAME]')`. **Remember** that this will be a spark table. Convert to a pandas one if desired.  
+
+* To merge new data into an existing table, overwriting existing values and adding new ones, use:  
+  ```sql   
+  df.createOrReplaceTempView("staging") --This assumes that you have a **SPARK** dataframe. Otherwise convert it first.  
+  spark.sql("""
+  MERGE INTO [INSERT EXISTING TABLE NAME] AS prod
+  USING staging
+  ON prod.[INSERT VARIABLE TO MATCH ON] = staging.[INSERT VARIABLE TO MATCH ON]
+  WHEN MATCHED THEN UPDATE SET *
+  WHEN NOT MATCHED THEN INSERT *
+  """)
+  ```   
+
+* Fabric notebooks comes with packages like Pandas and Requests preinstalled, but use `%pip install [PACKAGE NAME]` to install other packages.  
 
 ### **File extensions**
 * Turn on file extensions in windows explorer's visual settings. You can change a file's extension without impacting the file at all. As in, you can take a .sav file, for instance. rename it to .sav.backup and Windows won't know how to open it, which can help prevent confusion if you need to have multiple files stored with similar names. Change it back to .sav at any time and it'll function as a normal .sav file.  
