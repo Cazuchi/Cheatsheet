@@ -499,6 +499,8 @@ Notes:
   Use `Ctrl+Shift+P` to jump to the search bar, search for `Python: Select Interpreter` and manually navigate to the Python.exe inside `.\.venv\Scripts\`.  
   That's the only way I've found to consistently select an interpreter.  
 
+* VS Code be default activates a venv when you launch it, but it's literally never the correct one, so `ctrl+shift+p` search for `Open user settings (JSON)` and paste in `"python.terminal.activateEnvironment": false`. That'll stop VS Code from auto-activating any venv on launch.  
+
 ### **Miscellaneous**
 * Backtick for code blocks:  
   `Shift + the key to the left of backspace`
