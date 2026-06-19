@@ -457,6 +457,9 @@ Notes:
   """
   ```
 
+* **SETS** and **FROZENSETS**
+  So sets are useful for a lot of lookup operations, but normal sets are mutable, meaning they can be changed at will. Frozensets are immutable. Once you define them, they can no longer be changed and can therefore also be used as dictionary keys, for instance.  
+
 ### **SQL**
 * Basic CTE structure. Pick and choose which function are needed (Placeholder. Will go through and add explanations later). See my [F1 Ergast project](https://github.com/Cazuchi/F1-ergast-data-SQL-project/blob/main/Analysis.sql) for implemetation examples:  
   ```sql
