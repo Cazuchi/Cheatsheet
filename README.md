@@ -323,7 +323,9 @@ Notes:
 * Run `each 'area_km2=$.area / 1e6'` in the console to add a calculate property to each area with the estimated size in km2.  
 
 * Run `$ -filter 'navn == "København" || navn == "Frederiksberg" || navn == "Dragør" || navn == "Tårnby"'` to extract a subset of the geographic areas in the uploaded file. `navn == "København"` should match the area's property.  
+
   Run `-dissolve` to combine the extracted areas into a single area.  
+  
   Upload the file to geojson.io and clean up any small artifacts that might be in the dissolved boundary. Download and use the file.  
 
 ### **PowerBi**
