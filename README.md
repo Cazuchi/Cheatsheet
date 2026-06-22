@@ -324,6 +324,7 @@ Notes:
 
 * Run `$ -filter 'navn == "København" || navn == "Frederiksberg" || navn == "Dragør" || navn == "Tårnby"'` to extract a subset of the geographic areas in the uploaded file. `navn == "København"` should match the area's property.  
   Run `-dissolve` to combine the extracted areas into a single area.  
+  Upload the file to geojson.io and clean up any small artifacts that might be in the dissolved boundary. Download and use the file.  
 
 ### **PowerBi**
 * To get dynamic labels to be in the vertical center of card visuals, go to `format` --> `callout` --> `padding`, turn on individual padding and **ONLY** add padding on the bottom, like 10-15 pixels. Maybe add 5 pixels of padding on the left side too, so push it in a bit.  
