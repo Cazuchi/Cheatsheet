@@ -20,6 +20,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Git](#git)
 * [GitHub](#github)
 * [Google IAM](#google-iam)
+* [Mapshaper](#mapshaper)
 * [PowerBi](#powerbi)
 * [PowerShell](#powershell)
 * [Python](#python)
@@ -317,6 +318,12 @@ Notes:
   Enable access to **ALL** GCP APIs for the VM. The VM will still only have the permissions equal to the permissions of the service account that you attach, but needs access to the same APIs in the VM settings. You're technically setting the permissions twice, which is tedious, but necessary. In the end, the VMs actual permissions are controlled by the attached Service Account, so choose "All APIs" in the VM settings is fine.  
 
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
+
+### **Mapshaper**
+* Run `each 'area_km2=$.area / 1e6'` in the console to add a calculate property to each area with the estimated size in km2.  
+
+* Run `$ -filter 'navn == "København" || navn == "Frederiksberg" || navn == "Dragør" || navn == "Tårnnby"'` to extract a subset of the geographic areas in the uploaded file. `navn == "København"` should match the area's property.  
+  Run `-dissolve` to combine the extracted areas into a single area.  
 
 ### **PowerBi**
 * To get dynamic labels to be in the vertical center of card visuals, go to `format` --> `callout` --> `padding`, turn on individual padding and **ONLY** add padding on the bottom, like 10-15 pixels. Maybe add 5 pixels of padding on the left side too, so push it in a bit.  
