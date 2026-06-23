@@ -78,6 +78,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 >  
 > * Use `cat /home/headoffice/CityDNA/cron.log` to print the current content of the cron.log file.  
 > * Use `tail -f /home/headoffice/CityDNA/cron.log` to start monitoring the log file. Changes will be printed to the terminal. Use `Ctrl+C` to cancel the monitoring.  
+> * Add `-u` between the venv and script paths in crontab to unbuffer your script. This just means that it'll print printouts to the cron.log file immediately. Otherwise Python buffers print statements in a 8kb file and only prints them to the log file once that buffer is filled up.  
 
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
