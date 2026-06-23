@@ -66,13 +66,13 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 
 ### **Crontabs**
 > [!TIP]  
-> Use the `pwd` command in Debian to check the current directory.  
+> * Use the `pwd` command in Debian to check the current directory.  
 >  
-> Use the `ls` command to see files in the current directory. Also works in PowerShell on Windows.  
+> * Use the `ls` command to see files in the current directory. Also works in PowerShell on Windows.  
 >  
-> Use `crontab -l` to print the content of the crontab in the terminal.  
+> * Use `crontab -l` to print the content of the crontab in the terminal.  
 >  
-> Use `timedatectl` to print the VMs current time. Make sure to check if the VM is in the same timezone as you, because that will affect when it triggers. Especially if you're trying to test if the crontab runs successfully.  
+> * Use `timedatectl` to print the VMs current time. Make sure to check if the VM is in the same timezone as you, because that will affect when it triggers. Especially if you're trying to test if the crontab runs successfully.  
 
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
