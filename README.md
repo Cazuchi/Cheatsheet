@@ -73,6 +73,11 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 > * Use `crontab -l` to print the content of the crontab in the terminal.  
 >  
 > * Use `timedatectl` to print the VMs current time. Make sure to check if the VM is in the same timezone as you, because that will affect when it triggers. Especially if you're trying to test if the crontab runs successfully.  
+>  
+> * Add `>> /home/headoffice/CityDNA/cron.log 2>&1` in the crontab with the relevant path to have crontab print outputs from your script (print statements and errors) to a cron.log file that you can monitor. Otherwise crontab apparently defaults to e-mailing log entries to you, which won't work on a new VM without the e-mail service set up.  
+>  
+> * Use `cat /home/headoffice/CityDNA/cron.log` to print the current content of the cron.log file.  
+> * Use `tail -f /home/headoffice/CityDNA/cron.log` to start monitoring the log file. Changes will be printed to the terminal. Use `Ctrl+C` to cancel the monitoring.  
 
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
