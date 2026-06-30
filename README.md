@@ -478,6 +478,10 @@ Notes:
   """
   ```
 
+  OR  
+
+  `df.replace(mapping_dict)` IF mapping_dict has the structure `{column_name : {original_value1 : replacement_value1, original_value2 : replacement_value2, ...}}`. df.replace just leaves the original value if no match is found, which is handy.  
+
 * **SETS** and **FROZENSETS**
   So sets are useful for a lot of lookup operations, but normal sets are mutable, meaning they can be changed at will. Frozensets are immutable. Once you define them, they can no longer be changed and can therefore also be used as dictionary keys, for instance.  
 
