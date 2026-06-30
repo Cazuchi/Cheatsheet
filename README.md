@@ -118,7 +118,8 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   Use `df = spark.createDataFrame(df)` to convert a pandas dataframe to a spark dataframe.  
   Use `df = df.toPandas()` to convert a spark dataframe to a pandas dataframe.  
 
-* To create a new table in the connected lakehouse, use `df.write.mode('overwrite').saveAsTable('[TABLE NAME]')`.  
+* To create a new table in the connected lakehouse, use `df.write.mode('overwrite').saveAsTable('[TABLE NAME]')`. 
+  If you're overwritting an existing table and the scema has changedm use `df.write.mode('overwrite').option('overwriteSchema', 'true').saveAsTable('[TABLE NAME]')` because spark, by default, tries to match the two schemas when overwritting an existing table with a new one.  
 
 * To retrieve an existing table, use `df = spark.table('[TABLE NAME]')`. **Remember** that this will be a spark table. Convert to a pandas one if desired.  
 
@@ -133,6 +134,13 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   WHEN NOT MATCHED THEN INSERT *
   """)
   ```   
+
+* Spark uses backticks for column names instead of "" used in PostgreSQL, so creating a new table from an existing one will look like this in Spark:  
+  ```sql  
+  CREATE OR REPLACE TABLE copenhagen_card_surveyxact_respondents AS  
+  SELECT `responde`, `s_152`, `s_368`, `s_3`, `card_len`, `order_id`, `passtoke`, `kids_inc`  
+  FROM copenhagen_card_surveyxact_dataset   
+  ```  
 
 * Fabric notebooks comes with packages like Pandas and Requests preinstalled, but use `%pip install [PACKAGE NAME]` to install other packages.  
 
