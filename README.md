@@ -20,6 +20,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Git](#git)
 * [GitHub](#github)
 * [Google IAM](#google-iam)
+* [Mapshaper](#mapshaper)
 * [PowerBi](#powerbi)
 * [PowerShell](#powershell)
 * [Python](#python)
@@ -65,8 +66,19 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 
 ### **Crontabs**
 > [!TIP]  
-> Use the `pwd` command in Debian to check the current directory.  
-> Use the `ls` command to see files in the current directory. Also works in PowerShell on Windows.  
+> * Use the `pwd` command in Debian to check the current directory.  
+>  
+> * Use the `ls` command to see files in the current directory. Also works in PowerShell on Windows.  
+>  
+> * Use `crontab -l` to print the content of the crontab in the terminal.  
+>  
+> * Use `timedatectl` to print the VMs current time. Make sure to check if the VM is in the same timezone as you, because that will affect when it triggers. Especially if you're trying to test if the crontab runs successfully.  
+>  
+> * Add `>> /home/headoffice/CityDNA/cron.log 2>&1` in the crontab with the relevant path to have crontab print outputs from your script (print statements and errors) to a cron.log file that you can monitor. Otherwise crontab apparently defaults to e-mailing log entries to you, which won't work on a new VM without the e-mail service set up.  
+>  
+> * Use `cat /home/headoffice/CityDNA/cron.log` to print the current content of the cron.log file.  
+> * Use `tail -f /home/headoffice/CityDNA/cron.log` to start monitoring the log file. Changes will be printed to the terminal. Use `Ctrl+C` to cancel the monitoring.  
+> * Add `-u` between the venv and script paths in crontab to unbuffer your script. This just means that it'll print printouts to the cron.log file immediately. Otherwise Python buffers print statements in a 8kb file and only prints them to the log file once that buffer is filled up.  
 
 * Crontabs are used to schedule tasks, like running a script, on linux systems. Run `crontab -e` to edit the crontab file.  
 
@@ -106,7 +118,8 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   Use `df = spark.createDataFrame(df)` to convert a pandas dataframe to a spark dataframe.  
   Use `df = df.toPandas()` to convert a spark dataframe to a pandas dataframe.  
 
-* To create a new table in the connected lakehouse, use `df.write.mode('overwrite').saveAsTable('[TABLE NAME]')`.  
+* To create a new table in the connected lakehouse, use `df.write.mode('overwrite').saveAsTable('[TABLE NAME]')`. 
+  If you're overwritting an existing table and the scema has changedm use `df.write.mode('overwrite').option('overwriteSchema', 'true').saveAsTable('[TABLE NAME]')` because spark, by default, tries to match the two schemas when overwritting an existing table with a new one.  
 
 * To retrieve an existing table, use `df = spark.table('[TABLE NAME]')`. **Remember** that this will be a spark table. Convert to a pandas one if desired.  
 
@@ -121,6 +134,13 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   WHEN NOT MATCHED THEN INSERT *
   """)
   ```   
+
+* Spark uses backticks for column names instead of "" used in PostgreSQL, so creating a new table from an existing one will look like this in Spark:  
+  ```sql  
+  CREATE OR REPLACE TABLE copenhagen_card_surveyxact_respondents AS  
+  SELECT `responde`, `s_152`, `s_368`, `s_3`, `card_len`, `order_id`, `passtoke`, `kids_inc`  
+  FROM copenhagen_card_surveyxact_dataset   
+  ```  
 
 * Fabric notebooks comes with packages like Pandas and Requests preinstalled, but use `%pip install [PACKAGE NAME]` to install other packages.  
 
@@ -318,6 +338,15 @@ Notes:
 
 * Using `BigQuery User` level permissions for service accounts automatically grants `ownership level` access to the service account for datasets and tables that it creates itself, while limiting access to datasets and tables created by other users or service accounts.  
 
+### **Mapshaper**
+* Run `each 'area_km2=$.area / 1e6'` in the console to add a calculate property to each area with the estimated size in km2.  
+
+* Run `-filter 'navn == "København" || navn == "Frederiksberg" || navn == "Dragør" || navn == "Tårnby"'` to extract a subset of the geographic areas in the uploaded file. `navn == "København"` should match the area's property.  
+
+  Run `-dissolve` to combine the extracted areas into a single area.  
+
+  Upload the file to geojson.io and clean up any small artifacts that might be in the dissolved boundary. Download and use the file.  
+
 ### **PowerBi**
 * To get dynamic labels to be in the vertical center of card visuals, go to `format` --> `callout` --> `padding`, turn on individual padding and **ONLY** add padding on the bottom, like 10-15 pixels. Maybe add 5 pixels of padding on the left side too, so push it in a bit.  
 
@@ -462,6 +491,13 @@ Notes:
   Like a key mapping to a value in a dictionary, except these are just two lists.
   """
   ```
+
+  OR  
+
+  `df.replace(mapping_dict)` IF mapping_dict has the structure `{column_name : {original_value1 : replacement_value1, original_value2 : replacement_value2, ...}}`. df.replace just leaves the original value if no match is found, which is handy.  
+
+* **SETS** and **FROZENSETS**
+  So sets are useful for a lot of lookup operations, but normal sets are mutable, meaning they can be changed at will. Frozensets are immutable. Once you define them, they can no longer be changed and can therefore also be used as dictionary keys, for instance.  
 
 ### **SQL**
 * Basic CTE structure. Pick and choose which function are needed (Placeholder. Will go through and add explanations later). See my [F1 Ergast project](https://github.com/Cazuchi/F1-ergast-data-SQL-project/blob/main/Analysis.sql) for implemetation examples:  
