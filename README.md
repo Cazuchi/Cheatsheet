@@ -427,8 +427,15 @@ Notes:
     * PyO3 folder
     * cargo.toml --run `maturn init`  
     * pyproject.toml --run `maturn init`  
-    
-  Use `cargo add [crate] --features [feature#1],[feature#2]` to add dependencies to your cargo.toml (called Crates).  
+
+  Use `cargo add [crate] --features [feature#1],[feature#2]` to add dependencies (called Crates) to your cargo.toml in each subfolder depending on what's needed.  
+
+  The **TOP LEVEL** cargo.toml should look like this:  
+  ```
+  [workspace]
+  members = ["[SUB FOLDER #1]", "[SUB FOLDER #2]"]
+  resolver = "2"
+  ```
 
 ### **Python**
 * **TLDR for requests**  
