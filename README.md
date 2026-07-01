@@ -380,6 +380,12 @@ Notes:
 * Copy a file, like if you want a temporary backup while refactoring (... xD):  
   `Copy-Item old_name.filetype new_name.filetype`
 
+### **PyO3 extensions**
+* **INITIAL SETUP**
+  Create your `.venv`.  
+  `pip install maturin`.  
+  `maturin init` - choose the pyo3 binding.  
+
 ### **Python**
 * **TLDR for requests**  
   Requests is NOT a standard library. Pip install it.  
