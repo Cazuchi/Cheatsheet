@@ -23,6 +23,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Mapshaper](#mapshaper)
 * [PowerBi](#powerbi)
 * [PowerShell](#powershell)
+* [PyO3 extenstions](#pyo3-extensions)  
 * [Python](#python)
 * [SQL](#sql)
 * [VS Code](#vs-code)
