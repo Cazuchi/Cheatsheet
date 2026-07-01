@@ -412,9 +412,23 @@ Notes:
 
 ### **PyO3 extensions**
 * **INITIAL SETUP**  
+  So for a project where you want to code and test in Rust and then eventually turn it into a PyO3 extension for Python, it makes sense to have a dual folder approach.
   Create your `.venv`.  
-  `pip install maturin`.  
-  `maturin init` - choose the pyo3 binding.  
+  `pip install maturin`.
+
+  **THIS IS THE FOLDER STRUCTURE:**  
+  * Main folder  
+    * cargo.toml --create this manually  
+    * .venv --Python virtual environment
+
+    * Pure Rust folder  
+    * cargo.toml --run `cargo init --lib`  
+
+    * PyO3 folder
+    * cargo.toml --run `maturn init`  
+    * pyproject.toml --run `maturn init`  
+    
+  Use `cargo add [crate] --features [feature#1],[feature#2]` to add dependencies to your cargo.toml (called Crates).  
 
 ### **Python**
 * **TLDR for requests**  
