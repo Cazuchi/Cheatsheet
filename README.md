@@ -411,7 +411,7 @@ Notes:
   `Copy-Item old_name.filetype new_name.filetype`
 
 ### **PyO3 extensions**
-* **INITIAL SETUP**
+* **INITIAL SETUP**  
   Create your `.venv`.  
   `pip install maturin`.  
   `maturin init` - choose the pyo3 binding.  
