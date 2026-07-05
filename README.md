@@ -524,6 +524,8 @@ Notes:
 
 ### **Rust**
 * To iteratively test cargo scripts, run `cargo test -- --nocapture` in the directory of the crate that you want to test (this is **important** if you're in a multi-crate project!).  
+  The first `--` is essentially a wall. Everything before the wall is arguments send to the cargo compiler. Everything after the wall is sent to the test binary running the test.  
+  By default Rust captures all outputs when a test is successful, meaning you see no output regardless of stdout (println!) and stderr (dbg!) functioncalls in the code. `--nocapture` cancels that behaviour and send stdout and stderr messages to the terminal, so you can see them.  
 
 ### **SQL**
 * Basic CTE structure. Pick and choose which function are needed (Placeholder. Will go through and add explanations later). See my [F1 Ergast project](https://github.com/Cazuchi/F1-ergast-data-SQL-project/blob/main/Analysis.sql) for implemetation examples:  
