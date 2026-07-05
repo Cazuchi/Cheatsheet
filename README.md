@@ -25,6 +25,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [PowerShell](#powershell)
 * [PyO3 extenstions](#pyo3-extensions)  
 * [Python](#python)
+* [Rust](#rust)  
 * [SQL](#sql)
 * [VS Code](#vs-code)
 * [Miscellaneous](#miscellaneous)
@@ -520,6 +521,9 @@ Notes:
 
 * **SETS** and **FROZENSETS**
   So sets are useful for a lot of lookup operations, but normal sets are mutable, meaning they can be changed at will. Frozensets are immutable. Once you define them, they can no longer be changed and can therefore also be used as dictionary keys, for instance.  
+
+### **Rust**
+* To iteratively test cargo scripts, run `cargo test -- --nocapture` in the directory of the crate that you want to test (this is **important** if you're in a multi-crate project!).  
 
 ### **SQL**
 * Basic CTE structure. Pick and choose which function are needed (Placeholder. Will go through and add explanations later). See my [F1 Ergast project](https://github.com/Cazuchi/F1-ergast-data-SQL-project/blob/main/Analysis.sql) for implemetation examples:  
