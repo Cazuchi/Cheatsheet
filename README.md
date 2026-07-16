@@ -382,7 +382,7 @@ Notes:
     'TableY'[COLUMN]  
   )  
   ```
-  VALUES() grabs whatever unique values are left in the column AFTER the filter context is applied and then filter the parametertable by that list of unigue values.  
+  VALUES() grabs whatever unique values are left in the column AFTER the filter context is applied and then filter the parametertable by that list of unique values.  
     
   This is both more performant and allows for easy filtering based on slicers that allow for both single and multiple selections.    
 
