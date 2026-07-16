@@ -372,6 +372,20 @@ Notes:
   ```
   This evaluates whatever criteria you want for each unique `destination` in the `Monthly_data` table.  
 
+* **Alternative to SELECTEDVALUE() for parameter tables.**  
+  SELECTEDVALUE() can be used to apply a filter context when you are not working with a star schema where tables are connected through relationships. If a star schema is not possible, SELECTEDVALUE() + FILTER()  
+  solvest the issue of filtering a datatable inside of a measure by simply grabbing the chosen value in a slicer.  
+
+  The more performant way is to use TREATAS() tho, like this:  
+  ```sql   
+  TREATAS(
+    VALUES('TableX'[COLUMN]),  
+    'TableY'[COLUMN]  
+  )  
+  ```
+  VALUES() grabs whatever unique values are left in the column AFTER the filter context is applied and then filter the parametertable by that list of unigue values.  
+  This is both more performant and allows for easy filtering based on slicers that allow for both single and multiple selections.    
+
 ### **PowerShell**
 * Create a folder with `mkdir [folder name]`.  
   Delete a folder with `remove-item -Recurse -Force [folder name]`.  
