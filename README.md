@@ -373,8 +373,7 @@ Notes:
   This evaluates whatever criteria you want for each unique `destination` in the `Monthly_data` table.  
 
 * **Alternative to SELECTEDVALUE() for parameter tables.**  
-  SELECTEDVALUE() can be used to apply a filter context when you are not working with a star schema where tables are connected through relationships. If a star schema is not possible, SELECTEDVALUE() + FILTER()  
-  solvest the issue of filtering a datatable inside of a measure by simply grabbing the chosen value in a slicer.  
+  SELECTEDVALUE() can be used to apply a filter context when you are not working with a star schema where tables are connected through relationships. If a star schema is not possible, SELECTEDVALUE() + FILTER()  solves the issue of filtering a datatable inside of a measure by simply grabbing the chosen value in a slicer.  
 
   The more performant way is to use TREATAS() tho, like this:  
   ```sql   
