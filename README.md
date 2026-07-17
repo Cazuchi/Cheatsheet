@@ -14,6 +14,7 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * [Crontabs](#crontabs)
 * [Docker](#docker)
 * [d-types](#d-types)
+* [Excel](#excel)  
 * [Fabric notebooks](#fabric-notebooks)
 * [File extensions](#file-extensions)
 * [GeoJSON](#geojson)
@@ -111,6 +112,21 @@ Basic commands like df.groupby() in Python and similar are not included in this 
   `df.to_parquet([FILENAME OR RAW PATH], index=False)` instead of `df.to_excel([FILENAME OR RAW PATH], index=False)`  
   `pd.read_parquet()` instead of `pd.read_excel()`  
   Unless it absolutely has to be used in excel afterwards.  
+
+### **Excel**
+* `XLOOKUP()` has a cleaner syntax than `INDEX()+MATCH()`, but doesn't offer much benefit other than that. It's apparently slower on really large datasets.  
+
+* `LET()` is an interesting alternative. It lets you define variable in-line and use the repeatedly in the following calculations, like you might do in Python.
+
+  For instance, this takes A13 as a reference, uses match to find the corresponding row, grabs only the relevant values from the data array and dumps it into a spillover array with the original array headers on top using `VSTACK()`, which literally just takes multiple arrays as inputs and stacks them on top of each other:    
+  ```  
+  =LET(
+    row; MATCH(A13;$A$2:$A$11;0);
+    hdr; INDEX(B1:E1;1;0);
+    val; INDEX(B:E;row;0);
+    VSTACK(hdr;val)
+    )
+  ```
 
 ### **Fabric notebooks**
 * Fabric notebooks connect to a lakehouse. Under `Explorer` in the left hand side, choose `Data items` --> `Add data items` and choose the lakehouse that you want the notebook to be connected to.  
