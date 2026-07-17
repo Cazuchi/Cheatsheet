@@ -119,13 +119,13 @@ Basic commands like df.groupby() in Python and similar are not included in this 
 * `LET()` is an interesting alternative. It lets you define variable in-line and use the repeatedly in the following calculations, like you might do in Python.
 
   For instance, this takes A13 as a reference, uses match to find the corresponding row, grabs only the relevant values from the data array and dumps it into a spillover array with the original array headers on top using `VSTACK()`, which literally just takes multiple arrays as inputs and stacks them on top of each other:    
-  ```  
+  ```vb  
   =LET(
-    row; MATCH(A13;$A$2:$A$11;0);
-    hdr; INDEX(B1:E1;1;0);
-    val; INDEX(B:E;row;0);
-    VSTACK(hdr;val)
-    )
+    datarow; MATCH(A13;$A$2:$A$11;0);
+    header; INDEX(B1:E1;1;0);
+    value; INDEX(B:E;datarow;0);
+    VSTACK(header;value)
+  )
   ```
 
 ### **Fabric notebooks**
